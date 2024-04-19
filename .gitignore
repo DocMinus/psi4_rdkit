@@ -1,0 +1,10 @@
+**/.idea/
+**/__pycache__
+**/.ipynb_checkpoints
+**/*.log
+**/*.txt
+gnurff.py
+tmp.txt
+**/.vscode/
+*.clean
+timer.dat
