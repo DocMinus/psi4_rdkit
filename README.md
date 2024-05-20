@@ -52,3 +52,6 @@ code wise, using in one case a module by Steven Kearnes, license 3-clause BSD, c
 
 ### license
 MIT - bascially, if anyone finds this interesting they can do what they want with it (see license.md for details), after all, most of this is based on other open-source stuff.
+
+### Additions/Changes
+added new logger functions to simplify/clarify future snippets. Demonstrated so far only in the test_xxxxxx.py files.
