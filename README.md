@@ -54,4 +54,6 @@ code wise, using in one case a module by Steven Kearnes, license 3-clause BSD, c
 MIT - bascially, if anyone finds this interesting they can do what they want with it (see license.md for details), after all, most of this is based on other open-source stuff.
 
 ### Additions/Changes
-added new logger functions to simplify/clarify future snippets. Demonstrated so far only in the test_xxxxxx.py files.
+added new logger functions to simplify/clarify future snippets. Demonstrated so far only in the test_xxxxxx.py files.<br>
+__! as I slowly learned... there is a function `psi4.set_output_file("output.dat", True)` which can take care of all that out of the box.<br>
+Also a scratch function `psi4.core.IOManager.shared_object().set_default_path("/scratch")`.__
