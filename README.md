@@ -56,4 +56,5 @@ MIT - bascially, if anyone finds this interesting they can do what they want wit
 ### Additions/Changes
 added new logger functions to simplify/clarify future snippets. Demonstrated so far only in the test_xxxxxx.py files.<br>
 __! as I slowly learned... there is a function `psi4.set_output_file("output.dat", True)` which can take care of all that out of the box.<br>
-Also a scratch function `psi4.core.IOManager.shared_object().set_default_path("/scratch")`.__
+Also a scratch function `psi4.core.IOManager.shared_object().set_default_path("/scratch")`.__<br>
+Added wfn.energy to the detla_H_formation_and_reaction_energy.py script. Shows that I don't really know the details of the Psi4 package outputs....

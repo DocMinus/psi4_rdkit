@@ -77,23 +77,31 @@ mol2_psi4 = psi4.geometry(mol2)
 mol3_psi4 = psi4.geometry(mol3)
 
 # calculate the energy of the molecules
-energy1, _ = psi4.energy("B3LYP", molecule=mol1_psi4, return_wfn=True)
-energy2, _ = psi4.energy("B3LYP", molecule=mol2_psi4, return_wfn=True)
-energy3, _ = psi4.energy("B3LYP", molecule=mol3_psi4, return_wfn=True)
+energy1, wfn1 = psi4.energy("B3LYP", molecule=mol1_psi4, return_wfn=True)
+energy2, wfn2 = psi4.energy("B3LYP", molecule=mol2_psi4, return_wfn=True)
+energy3, wfn3 = psi4.energy("B3LYP", molecule=mol3_psi4, return_wfn=True)
 # unit returned is Hartree
 heat_of_formation1 = energy1 * HARTREE2KJMOL
 heat_of_formation2 = energy2 * HARTREE2KJMOL
 heat_of_formation3 = energy3 * HARTREE2KJMOL
 
 print("\n\n--------")
-
-printLog(f"Heat of formation1: {heat_of_formation1:.2f} kJ/mol")
-printLog(f"Heat of formation2: {heat_of_formation2:.2f} kJ/mol")
-printLog(f"Heat of formation3: {heat_of_formation3:.2f} kJ/mol")
+printLog(
+    f"Heat of formation1 (energy vs wfn energy): {heat_of_formation1:.2f} {wfn1.energy():.2f} kJ/mol"
+)
+printLog(
+    f"Heat of formation2 (energy vs wfn energy): {heat_of_formation2:.2f} {wfn2.energy():.2f} kJ/mol"
+)
+printLog(
+    f"Heat of formation3 (energy vs wfn energy): {heat_of_formation3:.2f} {wfn3.energy():.2f} kJ/mol"
+)
 printLog(
     "\nknown reference values: 1: aniline +31, 2. Water: -258, 3. nitrobenzene +12 kJ/mol"
 )
 printLog("-> reaction energy (aniline+2H2O)-(nitrobenzene) = -590 kJ/mol")
 printLog(
-    f"Psi4 calculates: {(heat_of_formation1+2*heat_of_formation2)-(heat_of_formation3 + 3* 0.0):.2f} kJ/mol"
+    f"Psi4 energy: {(heat_of_formation1+2*heat_of_formation2)-(heat_of_formation3 + 3* 0.0):.2f} kJ/mol"
+)
+printLog(
+    f"Psi4 wfn energy: {(wfn1.energy()+2*wfn2.energy())-(wfn3.energy() + 3* 0.0):.2f} kJ/mol"
 )
